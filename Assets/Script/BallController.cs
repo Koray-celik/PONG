@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
 
-        if (other.transform.CompareTag("Racket"))
+        if (other.transform.CompareTag("Racket")||other.transform.CompareTag("aiRacket"))
         {
 
             var racket = other.transform.GetComponent<RacketController>();
@@ -34,10 +34,10 @@ public class BallController : MonoBehaviour
 
         }
 
-        if (other.transform.CompareTag("Goal"))
+        if (other.transform.CompareTag("Racket"))
         {
             GameManager.Instance.Score++;
-            OnStart();
+            //OnStart();
 
         }
         if (other.transform.CompareTag("GoalGameOver"))

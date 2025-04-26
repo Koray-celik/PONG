@@ -7,6 +7,7 @@ TagManager:
   - Racket
   - Goal
   - GoalGameOver
+  - aiRacket
   layers:
   - Default
   - TransparentFX

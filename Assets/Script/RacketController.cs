@@ -8,7 +8,7 @@ public class RacketController : MonoBehaviour
 
     public bool _isUp;
     [SerializeField] private bool _isPlayer;
-    [SerializeField] private float _aiSpeed;
+    //[SerializeField] private float _aiSpeed;
 
     private float _horizontalInput;
 
@@ -26,14 +26,15 @@ public class RacketController : MonoBehaviour
         }
         else
         {
-
-            var _ai = Mathf.Lerp(_newPosition.x, BallController.Instance.transform.position.x, _aiSpeed * Time.deltaTime);
+            //AI gol yemesini istersek speed ekleyip yavaşlatabiliriz
+            //var _ai = Mathf.Lerp(_newPosition.x, BallController.Instance.transform.position.x, _aiSpeed * Time.deltaTime);
+            var _ai = BallController.Instance.transform.position.x;
             _newPosition.x = _ai;
         }
         _newPosition.x = Mathf.Clamp(_newPosition.x, -_limitHorizontal, _limitHorizontal);
         transform.position = _newPosition;
-
     }
+
 
 
 }
