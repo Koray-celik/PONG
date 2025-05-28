@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class BallController2 : MonoBehaviour
+public class BallController : MonoBehaviour
 {
-    public static BallController2 Instance { get; private set; }
+    public static BallController Instance { get; private set; }
 
 
     [SerializeField] private new Rigidbody2D rigidbody2D;
@@ -20,7 +20,7 @@ public class BallController2 : MonoBehaviour
     public void OnStart()
     {
 
-        if (GameManager2.Instance.isGameOver)
+        if (GameManager.Instance.isGameOver)
             return;
 
         if (startBallCoroutine != null)
@@ -59,7 +59,10 @@ public class BallController2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (GameManager2.Instance.isGameOver)
+
+        SoundManager.Instance.PlayRacketHit();
+
+        if (GameManager.Instance.isGameOver)
             return;
 
         if (other.transform.CompareTag("Racket") || other.transform.CompareTag("aiRacket"))
@@ -75,12 +78,14 @@ public class BallController2 : MonoBehaviour
 
         if (other.transform.CompareTag("GoalGameOver"))
         {
-            GameManager2.Instance.AIScore++;
+            SoundManager.Instance.PlayGoalAgainst();
+            GameManager.Instance.AIScore++;
             StartCoroutine(RestartBall());
         }
         if (other.transform.CompareTag("Goal"))
         {
-            GameManager2.Instance.PlayerScore++;
+            SoundManager.Instance.PlayGoal();
+            GameManager.Instance.PlayerScore++;
             StartCoroutine(RestartBall());
         }
     }

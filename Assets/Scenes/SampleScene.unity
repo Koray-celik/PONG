@@ -2326,7 +2326,7 @@ MonoBehaviour:
   _limitHorizontal: 2.2
   _isUp: 1
   _isPlayer: 0
-  _aiSpeed: 11
+  _aiSpeed: 4.4
 --- !u!1 &1069748192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2421,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1467648755}
   - {fileID: 200507706}
   - {fileID: 774094949}
   m_Father: {fileID: 1588496682}
@@ -2623,13 +2624,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467648754}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1830452047}
-  m_Father: {fileID: 1543100844}
+  m_Father: {fileID: 1069748196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2842,7 +2843,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1548765729}
-  - {fileID: 1467648755}
   m_Father: {fileID: 1588496682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -21,7 +21,7 @@ public class RacketController : MonoBehaviour
     void Update()
     {
 
-        if (GameManager2.Instance.isGameOver)
+        if (GameManager.Instance.isGameOver)
             return;
 
         Vector3 _newPosition = transform.position;
@@ -35,7 +35,7 @@ public class RacketController : MonoBehaviour
         else
         {
             //AI gol yemesini istersek speed ekleyip yavaşlatabiliriz
-            var _ai = Mathf.Lerp(_newPosition.x, BallController2.Instance.transform.position.x, _aiSpeed * Time.deltaTime);
+            var _ai = Mathf.Lerp(_newPosition.x, BallController.Instance.transform.position.x, _aiSpeed * Time.deltaTime);
             //var _ai = BallController.Instance.transform.position.x;
             _newPosition.x = _ai;
         }

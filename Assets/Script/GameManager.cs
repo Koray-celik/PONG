@@ -3,9 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager2 : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static GameManager2 Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
 
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject _pausePanel;
@@ -67,15 +67,14 @@ public class GameManager2 : MonoBehaviour
     {
         isGameOver = false;
         _winLosePopup.SetActive(false);
-        canvas.enabled = false;
 
         AIScore = 0;
         PlayerScore = 0;
 
         playerRacket.ResetPosition();
 
-        BallController2.Instance.EnablePhysics();
-        BallController2.Instance.OnStart();
+        BallController.Instance.EnablePhysics();
+        BallController.Instance.OnStart();
     }
 
 
@@ -114,12 +113,12 @@ public class GameManager2 : MonoBehaviour
     }
     public void OnGameOver(bool playerWon)
     {
-        canvas.enabled = true;
+
         _textPlay.enabled = true;
         _textPlay.text = playerWon ? "You Won!" : "You Lose :(";
 
         isGameOver = true;
-        BallController2.Instance.StopBall();
+        BallController.Instance.StopBall();
 
         _winLosePopup.SetActive(true);
     }
@@ -129,7 +128,7 @@ public class GameManager2 : MonoBehaviour
     public void OnClick_StartButton()//menu olmadığ için boyle menu gelince değişecek
     {
 
-        canvas.enabled = false;
-        BallController2.Instance.OnStart();
+        Destroy(canvas.gameObject);
+        BallController.Instance.OnStart();
     }
 }
